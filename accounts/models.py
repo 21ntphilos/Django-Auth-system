@@ -1,8 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser,BaseUserManager,PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser,BaseUserManager,PermissionsMixin
 
 # Create your models here.
-class UserModel(AbstractUser, BaseUserManager):
+class UserManager(BaseUserManager):
     def create_user(self, email,full_name, password=None, **extra_fields):
         if not email:
             raise ValueError("User Email field must be set")
@@ -22,3 +22,20 @@ class UserModel(AbstractUser, BaseUserManager):
             raise ValueError("Superuser must have is_superuser=True.")
 
         return self.create_user(email, password, full_name, **extra_fields)
+
+
+class UserModel(AbstractBaseUser):
+    objects = UserManager()
+
+    email = models.EmailField(unique=True)
+    full_name = models.CharField(max_length=255)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False) 
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["full_name"]
+
+
+    def __str__(self):
+        return self.email
+

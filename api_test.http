@@ -1,0 +1,33 @@
+@baseUrl = http://127.0.0.1:8000/
+
+### Get all users
+GET {{baseUrl}}/users
+Accept: application/json
+
+### Create a new user
+POST {{baseUrl}}api/accounts/register/
+Content-Type: application/json
+
+{
+  "full_name": "Herbert Wigwe",
+  "email": "h@gmail.com",
+  "password": "f31kf1j!#$35g2b45"
+}
+
+### Login user
+POST {{baseUrl}}api/accounts/login/
+Content-Type: application/json
+
+{
+  "email": "h@gmail.com",
+  "password": "f21kf1j!#$35g2b45"
+}
+
+### Get Refresh Token
+POST {{baseUrl}}api/accounts/token/refresh/
+Content-Type: application/json
+
+{
+  "email": "h@gmail.com",
+  "password": "f31kf1j!#$35g2b45"
+}
