@@ -38,9 +38,7 @@ class ForgotPasswordView(APIView):
             token = secrets.token_urlsafe(30)
             settings.REDIS_CLIENT.set(f"reset_token:{token}", user.id, ex=600)
 
-            reset_link = f"http://localhost:8000/api/account/reset-password/?token={token}"
-
-            return Response({"message": "Password reset link has been sent to your email.", "reset_link": reset_link},status=status.HTTP_200_OK)
+            return Response({"message": "Password reset link has been sent to your email.", "token": token},status=status.HTTP_200_OK)
 
         return Response({"message": "If this email exists, a reset link has been sent."}, status=status.HTTP_200_OK)
 
