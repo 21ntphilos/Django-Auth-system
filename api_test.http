@@ -1,9 +1,5 @@
 @baseUrl = http://127.0.0.1:8000/
 
-### Get all users
-GET {{baseUrl}}/users
-Accept: application/json
-
 ### Create a new user
 POST {{baseUrl}}api/accounts/register/
 Content-Type: application/json
