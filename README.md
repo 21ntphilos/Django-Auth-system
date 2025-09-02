@@ -19,7 +19,7 @@ Dockerized for easy deployment
 SETUP
 
 <!-- ## Clone the Repo -->
-git clone https://github.com/your-username/authservice.git
+git clone https://github.com/21ntphilos/Django-Auth-system.git
 cd authservice
 
 <!-- ## Create vritual environment  -->
