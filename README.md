@@ -24,7 +24,7 @@ cd authservice
 
 <!-- ## Create vritual environment  -->
 python -m venv venv
-source venv/bin/activate  # On Mac/Linux
+source venv/bin/activate
 venv\Scripts\activate 
 
 
