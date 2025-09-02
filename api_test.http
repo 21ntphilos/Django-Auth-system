@@ -9,9 +9,9 @@ POST {{baseUrl}}api/accounts/register/
 Content-Type: application/json
 
 {
-  "full_name": "Herbert Wigwe",
-  "email": "h@gmail.com",
-  "password": "f31kf1j!#$35g2b45"
+  "full_name": "  Fillibister    ",
+  "email": "hbt@gmail.com",
+  "password": "     tell me more    "
 }
 
 ### Login user
@@ -19,8 +19,8 @@ POST {{baseUrl}}api/accounts/login/
 Content-Type: application/json
 
 {
-  "email": "h@gmail.com",
-  "password": "new_password_here"
+  "email": "hbt@gmail.com",
+  "password": "tell me more"
 }
 
 ### Get Refresh Token
@@ -36,8 +36,8 @@ POST {{baseUrl}}api/accounts/reset-password/
 Content-Type: application/json
 
 {
-  "token": "HZmwjXjDVw3XVgcHUAPNTgpohxkAKj-SznrFxhSX",
-  "new_password": "new_password_here"
+  "token": "IYpKICYx_bNuO37pgzX54DKg9VGKex7g5YXIpFAC",
+  "new_password": "password_here"
 }
 
 ### Forgot Password

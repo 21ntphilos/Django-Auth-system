@@ -2,20 +2,32 @@ import secrets
 from rest_framework import generics
 from .serializers import UserAccountSerializer
 from django.contrib.auth import get_user_model
-from django.http import JsonResponse
 from django.conf import settings
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import throttling
+from rest_framework_simplejwt.views import TokenObtainPairView
+
 # Create your views here.
 
 User = get_user_model()
 
-class UserAccountView(generics.CreateAPIView):
+class UserRegisterRateThrottle(throttling.AnonRateThrottle):
+    scope = "register"
+
+class UserLoginRateThrottle(throttling.AnonRateThrottle):
+    scope = "login"
+
+class UserResetPasswordRateThrottle(throttling.AnonRateThrottle):
+    scope = "reset"
+
+class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserAccountSerializer
 
+class LoginView(TokenObtainPairView):
+    throttle_classes = [UserLoginRateThrottle]
 
 class ForgotPasswordView(APIView):
     def post(self, request):
@@ -34,6 +46,8 @@ class ForgotPasswordView(APIView):
 
 
 class ResetPasswordView(APIView):
+    throttle_classes = [UserResetPasswordRateThrottle]
+
     def post(self, request):
         token = request.data.get("token")
         new_password = request.data.get("new_password")
@@ -66,5 +80,3 @@ class ResetPasswordView(APIView):
                 return Response({"error": "Invalid token or user does not exist."}, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response({"error": "Invalid or expired token."}, status=status.HTTP_400_BAD_REQUEST)
-# forgot_password = ForgotPasswordView.as_view()
-# reset_password = ResetPasswordView.as_view()
