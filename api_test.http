@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
   "email": "h@gmail.com",
-  "password": "f21kf1j!#$35g2b45"
+  "password": "new_password_here"
 }
 
 ### Get Refresh Token
@@ -28,6 +28,22 @@ POST {{baseUrl}}api/accounts/token/refresh/
 Content-Type: application/json
 
 {
-  "email": "h@gmail.com",
-  "password": "f31kf1j!#$35g2b45"
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Njg3MTk2NiwiaWF0IjoxNzU2Nzg1NTY2LCJqdGkiOiIxOWQ4NWRiNTc0MWM0MGExODhmYWM1MWMwNTg0YTUzYiIsInVzZXJfaWQiOiIxIn0.k4Aw7YNZyyq7eKp-dvlON4vE7WRWGmcxUKtWD08mCa8"
+}
+
+### Reset Password
+POST {{baseUrl}}api/accounts/reset-password/
+Content-Type: application/json
+
+{
+  "token": "HZmwjXjDVw3XVgcHUAPNTgpohxkAKj-SznrFxhSX",
+  "new_password": "new_password_here"
+}
+
+### Forgot Password
+POST {{baseUrl}}api/accounts/forgot-password/
+Content-Type: application/json
+
+{
+  "email": "h@gmail.com"
 }
