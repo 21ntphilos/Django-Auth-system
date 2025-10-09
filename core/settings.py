@@ -141,10 +141,10 @@ SESSION_CACHE_ALIAS = "default"
 # DEFAULT_FROM_EMAIL = config("FROM_EMAIL")
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL-USER')
-EMAIL_HOST_PASSWORD = config('EMAIL-PASSWORD') 
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = config('EMAIL-USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL-PASSWORD') 
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

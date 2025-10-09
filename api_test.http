@@ -5,8 +5,8 @@ POST {{baseUrl}}api/accounts/register/
 Content-Type: application/json
 
 {
-  "full_name": "Fillibister",
-  "email": "ucheokoye99@gmail.com",
+  "full_name": "Chukwunonso Okoye",
+  "email": "chukwunonsoOkoye99@gmail.com",
   "password": "tell me more"
 }
 
